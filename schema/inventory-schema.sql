@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Inventory Server
 -- ===
--- === Build : 263
+-- === Build : 266
 -- ======================================================================
 
 CREATE TABLE trading_session
@@ -194,25 +194,6 @@ CREATE INDEX broker_productIDX1 ON broker_product(username);
 
 -- ======================================================================
 
-CREATE TABLE broker_instrument
-  (
-    id                 int           auto_increment,
-    broker_product_id  int           not null,
-    symbol             varchar(16)   not null,
-    name               varchar(64)   not null,
-    expiration_date    int           not null,
-
-    primary key(id),
-    unique(broker_product_id,symbol),
-
-    foreign key(broker_product_id) references broker_product(id)
-  )
- ENGINE = InnoDB ;
-
-CREATE INDEX broker_instrumentIDX1 ON broker_instrument(broker_product_id);
-
--- ======================================================================
-
 CREATE TABLE trading_system
   (
     id                  int            auto_increment,
@@ -228,6 +209,9 @@ CREATE TABLE trading_system
     agent_profile_id    int,
     external_ref        varchar(64),
     finalized           tinyint        not null,
+    in_sample_from      int            not null,
+    in_sample_to        int            not null,
+    engine_code         varchar(16)    not null,
     created_at          datetime       not null,
     updated_at          datetime,
 
