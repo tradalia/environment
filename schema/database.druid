@@ -2,7 +2,7 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">270</attrib>
+		<attrib name="build">271</attrib>
 		<attrib name="serial">54803</attrib>
 	</attribs>
 	<database>
@@ -1281,6 +1281,13 @@
 				<attribs>
 					<attrib name="name">-UnNamed-</attrib>
 					<attrib name="sqlCode">ALTER TABLE trading_system add column engine_code varchar(16) not null</attrib>
+				</attribs>
+				<modsConfig/>
+			</query>
+			<query>
+				<attribs>
+					<attrib name="name">Currency</attrib>
+					<attrib name="sqlCode">SELECT date, code, value FROM currency_history cch left join currency c on c.id=ch.currency_id order by code,date </attrib>
 				</attribs>
 				<modsConfig/>
 			</query>
