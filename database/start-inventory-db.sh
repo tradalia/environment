@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIR="$( cd "$(dirname "$0")" ; pwd -P )"
-CONTAINER_NAME="tradalia-inventory-db"
+CONTAINER_NAME="algotiqa-inventory-db"
 
 runPodmanContainer(){
     if [[ $(podman ps --filter "name=^/$CONTAINER_NAME$" --format '{{.Names}}') == ${CONTAINER_NAME} ]]; then
@@ -22,7 +22,7 @@ runPodmanContainer(){
 		-e MYSQL_ROOT_PASSWORD=root \
 		-v ${DIR}/inventory-db:/var/lib/mysql \
 		-p 3400:3306 \
-		docker://mysql:5.7
+		docker://mysql:5.7.44
 
     if [[ $? == 0 ]]; then
         echo

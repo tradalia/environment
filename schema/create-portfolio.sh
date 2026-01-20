@@ -1,8 +1,8 @@
 #!/bin/bash
 
 dbName=portfolio
-dbUser=tradalia
-dbPass=tradalia
+dbUser=admin
+dbPass=admin
 dbPort=3401
 
 mysql --user=root --password=root --host=127.0.0.1 --port=$dbPort << EOF

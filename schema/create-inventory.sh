@@ -1,8 +1,8 @@
 #!/bin/bash
 
 dbName=inventory
-dbUser=tradalia
-dbPass=tradalia
+dbUser=admin
+dbPass=admin
 
 mysql --user=root --password=root --host=127.0.0.1 --port=3400 << EOF
 drop database if exists ${dbName};

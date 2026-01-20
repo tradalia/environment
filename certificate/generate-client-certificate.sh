@@ -4,11 +4,11 @@
 openssl genrsa -out client.key 2048
 
 # Generate the Certificate Signing Request 
-openssl req -new -key client.key -out client.csr -subj "/C=EU/ST=Italy/L=Rome/O=Tradalia/OU=TradaliaClient/CN=tradalia-server"
+openssl req -new -key client.key -out client.csr -subj "/C=EU/ST=Italy/L=Rome/O=Algotiqa/OU=AlgotiqaClient/CN=algotiqa-server"
 
 # Sign it with the CA
 
-echo "subjectAltName=DNS:tradalia-server" > altsubj.ext
+echo "subjectAltName=DNS:algotiqa-server" > altsubj.ext
 
 openssl x509  -req -in client.csr \
     -CA ca.crt -CAkey ca.key \

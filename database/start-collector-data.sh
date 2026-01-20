@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIR="$( cd "$(dirname "$0")" ; pwd -P )"
-CONTAINER_NAME="tradalia-collector-data"
+CONTAINER_NAME="algotiqa-collector-data"
 
 runPodmanContainer(){
     if [[ $(podman ps --filter "name=^/$CONTAINER_NAME$" --format '{{.Names}}') == ${CONTAINER_NAME} ]]; then
@@ -22,7 +22,7 @@ runPodmanContainer(){
 		-v ${DIR}/collector-data:/var/lib/postgresql/data \
 		-p 3410:5432 \
 		-e POSTGRES_PASSWORD=postgres \
-		docker://timescale/timescaledb:2.23.1-pg16
+		docker://timescale/timescaledb:2.24.0-pg16
 
     if [[ $? == 0 ]]; then
         echo

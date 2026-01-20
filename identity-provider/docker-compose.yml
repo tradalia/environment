@@ -3,15 +3,15 @@ version: '3'
 services:
 
   keycloak:
-     container_name: tradalia-keycloak-be
+     container_name: algotiqa-keycloak-be
      image: quay.io/keycloak/keycloak:24.0.5
      restart: always
      command:
       - "start"
       - "--https-certificate-file=/config/server.crt"
       - "--https-certificate-key-file=/config/server.key"
-      - "--hostname-url=https://tradalia-server:8443/auth"
-      - "--hostname-admin-url=https://tradalia-server:8443/auth"
+      - "--hostname-url=https://algotiqa-server:8443/auth"
+      - "--hostname-admin-url=https://algotiqa-server:8443/auth"
       - "--proxy=reencrypt"
      volumes:
        - ./config:/config
@@ -29,7 +29,7 @@ services:
 
   keycloak-db:
     image: mysql:5.7
-    container_name: tradalia-keycloak-db
+    container_name: algotiqa-keycloak-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
